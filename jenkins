@@ -1,11 +1,20 @@
 pipeline {
 	agent any
 		stages {
-			stage ('BUILD'){
+			stage ('git checkout'){
+				steps {
+					echo "pulling sorce code from git is sucessfully"
+					sh 'git branch: 'main', url: 'https://github.com/SANJU1170/C-Projects.git''
+					  }
+				   }
+
+            stage ('BUILD'){
 				steps {
 					echo "This is Build stage and completed sucessfully"
 					sh 'make ABC.exe'
-					  }
-				   }  
+
+				   
 				 }
 			    }
+			}
+		}
